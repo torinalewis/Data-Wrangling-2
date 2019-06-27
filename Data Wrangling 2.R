@@ -44,4 +44,7 @@ titanic_new$boat<-replace(titanic_new$boat,titanic_new$boat==1,"NA" )
 
 #4 this code is not returning the secifiy result (can someone help with this)
 titanic_new <- titanic_new %>% 
-  mutate(has_cabin_number = ifelse(grepl(" ", cabin), 0, 1))
+  mutate(has_cabin_number = ifelse(cabin == ' ', 0, 1))
+
+
+write.csv(titanic_new, file = "titanic_clean.csv")
